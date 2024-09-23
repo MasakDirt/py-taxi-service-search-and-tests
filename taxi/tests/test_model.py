@@ -5,8 +5,7 @@ from taxi.models import Manufacturer, Car
 
 
 class ManufacturerModelTest(TestCase):
-    @classmethod
-    def setUpTestData(cls):
+    def setUp(self):
         Manufacturer.objects.create(
             name="Test name",
             country="Test country"
@@ -36,8 +35,7 @@ class ManufacturerModelTest(TestCase):
 
 
 class DriverModelTest(TestCase):
-    @classmethod
-    def setUpTestData(cls):
+    def setUp(self):
         get_user_model().objects.create_user(
             username="test",
             password="testpassword",
@@ -76,8 +74,7 @@ class DriverModelTest(TestCase):
 
 
 class CarModelTest(TestCase):
-    @classmethod
-    def setUpTestData(cls):
+    def setUp(self):
         manufacturer = Manufacturer.objects.create(
             name="Test name",
             country="Test country"

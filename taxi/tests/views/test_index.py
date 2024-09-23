@@ -14,14 +14,12 @@ class PublicIndexViewTest(TestCase):
 
 
 class PrivateIndexViewTest(TestCase):
-    @classmethod
-    def setUpTestData(cls):
+    def setUp(self):
         bmw = Manufacturer.objects.create(name="BMW", country="Germany")
         audi = Manufacturer.objects.create(name="AUDI", country="Germany")
         Car.objects.create(model="M5", manufacturer=bmw)
         Car.objects.create(model="A6", manufacturer=audi)
 
-    def setUp(self):
         user = get_user_model().objects.create_user(
             username="test user",
             password="test pass"
